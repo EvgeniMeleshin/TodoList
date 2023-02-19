@@ -40,9 +40,6 @@ class TaskViewController: UIViewController {
 	}
 		
 	private func setupTableViewConstraints() {
-		tasksTableView.translatesAutoresizingMaskIntoConstraints = false
-		tasksTableView.register(TaskViewCell.self, forCellReuseIdentifier: "cell")
-		tasksTableView.separatorStyle = .singleLine
 		tasksTableView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
 		tasksTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
 		tasksTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
