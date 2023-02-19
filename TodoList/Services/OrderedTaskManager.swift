@@ -42,13 +42,13 @@ final class OrderedTaskManager: ITaskManager {
 				return task0.priority.rawValue < task1.priority.rawValue
 			}
 			
-//			if $0 is ImportantTask, $1 is RegularTask {
-//				return true
-//			}
-//		
-//			if  $0 is RegularTask, $1 is ImportantTask {
-//				return false
-//			}
+			if $0 is ImportantTask, $1 is RegularTask {
+				return true
+			}
+		
+			if  $0 is RegularTask, $1 is ImportantTask {
+				return false
+			}
 
 			return true
 		}
