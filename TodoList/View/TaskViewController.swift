@@ -37,10 +37,6 @@ class TaskViewController: UIViewController {
 		tasksTableView.translatesAutoresizingMaskIntoConstraints = false
 		tasksTableView.delegate = tasksAdapter.self
 		tasksTableView.dataSource = tasksAdapter
-		tasksTableView.separatorStyle = .singleLine
-		tasksTableView.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
-		tasksTableView.rowHeight = UITableView.automaticDimension
-		tasksTableView.estimatedRowHeight = 100
 		tasksTableView.backgroundColor = .white
 		tasksTableView.register(TaskViewCell.self, forCellReuseIdentifier: tasksAdapter.identifier)
 		view.addSubview(tasksTableView)
