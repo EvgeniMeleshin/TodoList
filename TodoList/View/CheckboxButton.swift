@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CheckboxButton: UIView {
+final class CheckboxButton: UIView {
 	
 	var isChecked = false
 	

@@ -8,7 +8,7 @@
 import UIKit
 
 // Класс ячейки
-class TaskViewCell: UITableViewCell {
+final class TaskViewCell: UITableViewCell {
 	
 	var title = UILabel()
 	var priority = UILabel()

@@ -8,7 +8,7 @@
 import UIKit
 
 /// Контроллер задач 
-class TaskViewController: UIViewController {
+final class TaskViewController: UIViewController {
 	
 	let tasksAdapter = TasksAdapter()
 	let tasksTableView = UITableView()

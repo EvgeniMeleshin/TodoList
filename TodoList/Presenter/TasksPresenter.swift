@@ -20,7 +20,7 @@ protocol ITasksPresenter {
 }
 
 /// Презентер
-class TasksPresenter: ITasksPresenter {
+final class TasksPresenter: ITasksPresenter {
 	
 	private let taskManager: ITaskManager = OrderedTaskManager(taskManager: TaskManager())
 	private let repository: IRepository = Repository()
