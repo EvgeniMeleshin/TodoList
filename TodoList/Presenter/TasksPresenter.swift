@@ -15,6 +15,8 @@ protocol ITasksView: NSObjectProtocol {
 /// Протокол презентера
 protocol ITasksPresenter {
 	func completeTask(id: String)
+	func getTasks()
+	func addView(view: ITasksView)
 }
 
 /// Презентер

@@ -11,32 +11,39 @@ import UIKit
 class TaskViewController: UIViewController {
 	
 	let tasksAdapter = TasksAdapter()
+	let tasksTableView = UITableView()
+	let presenter: ITasksPresenter
 	
-	lazy var tasksTableView: UITableView = {
-		let view = UITableView()
-		view.translatesAutoresizingMaskIntoConstraints = false
-		view.delegate = tasksAdapter.self
-		view.dataSource = tasksAdapter
-		view.separatorStyle = .singleLine
-		view.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
-		view.rowHeight = UITableView.automaticDimension
-		view.estimatedRowHeight = 100
-		view.backgroundColor = .white
-		view.register(TaskViewCell.self, forCellReuseIdentifier: tasksAdapter.identifier)
-		
-		return view
-	}()
+	init(presenter: ITasksPresenter) {
+		self.presenter = presenter
+		super.init(nibName: nil, bundle: nil)
+	}
 	
-	let presenter = TasksPresenter()
+	required init?(coder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
+	}
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		navigationItem.title = "To-do List"
 		presenter.addView(view: self)
 		tasksAdapter.presenter = presenter
-		view.addSubview(tasksTableView)
+		setupTableView()
 		setupTableViewConstraints()
 		presenter.getTasks()
+	}
+	
+	private func setupTableView() {
+		tasksTableView.translatesAutoresizingMaskIntoConstraints = false
+		tasksTableView.delegate = tasksAdapter.self
+		tasksTableView.dataSource = tasksAdapter
+		tasksTableView.separatorStyle = .singleLine
+		tasksTableView.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
+		tasksTableView.rowHeight = UITableView.automaticDimension
+		tasksTableView.estimatedRowHeight = 100
+		tasksTableView.backgroundColor = .white
+		tasksTableView.register(TaskViewCell.self, forCellReuseIdentifier: tasksAdapter.identifier)
+		view.addSubview(tasksTableView)
 	}
 		
 	private func setupTableViewConstraints() {

@@ -13,7 +13,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 	
 	func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
 		guard let windowScene = (scene as? UIWindowScene) else { return }
-		let taskViewController = TaskViewController()
+		let presenter: ITasksPresenter = TasksPresenter()
+		let taskViewController = TaskViewController(presenter: presenter)
 		let navigationController = UINavigationController(rootViewController: taskViewController)
 		self.window = UIWindow(windowScene: windowScene)
 		self.window?.rootViewController = navigationController
