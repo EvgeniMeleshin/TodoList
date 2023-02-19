@@ -37,7 +37,7 @@ final class TasksPresenter: ITasksPresenter {
 		createViewData(tasks: taskManager.allTasks())
 	}
 	
-	func createViewElement(tasks: [Task], section: Int) {
+	private func createViewElement(tasks: [Task], section: Int) {
 		for task in tasks.enumerated() {
 			if let importantTask = task.element as? ImportantTask {
 				let viewData = ViewData(title: importantTask.title,
@@ -61,7 +61,7 @@ final class TasksPresenter: ITasksPresenter {
 		}
 	}
 	
-	func createViewData(tasks: [Task]) {
+	private func createViewData(tasks: [Task]) {
 		let uncompletedTasks = taskManager.uncompletedTasks()
 		let completedTasks = taskManager.completedTasks()
 		SectionsTypes.allCases.forEach { sectionType in
