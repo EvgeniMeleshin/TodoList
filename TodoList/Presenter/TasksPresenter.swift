@@ -8,7 +8,7 @@
 import UIKit
 
 /// Протокол view контроллера
-protocol ITasksView: NSObjectProtocol {
+protocol ITasksView: AnyObject {
 	func render(viewDataArray: [ViewData])
 }
 
